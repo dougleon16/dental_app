@@ -1,0 +1,11 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+.content-container {
+  flex-grow: 1;
+  background-color: #e7e7e9; /* o el color de fondo deseado */
+  overflow: auto;
+  padding: 20px;
+}

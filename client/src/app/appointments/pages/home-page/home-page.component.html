@@ -1,0 +1,193 @@
+<div class="scheduler">
+  <shared-header
+    [title]="'Citas Agendadas'"
+    [subtitle]="'Listado de todas las '"
+    [span]="'citas dentales'"
+  ></shared-header>
+
+  <div class="noAppointments" *ngIf="allAppointments.length === 0">
+    <p class="name" style="font-size: 30px; font-weight: bold">
+      No hay citas agendadas
+    </p>
+    <div class="img-container">
+      <img
+        class="img"
+        src="https://www.fhcsd.org/wp-content/uploads/2017/02/Dental-Services.png"
+        alt=""
+      />
+    </div>
+  </div>
+
+  <div class="scheduler__form">
+    <p-card
+      *ngFor="let appointment of allAppointments"
+      class="custom-card"
+      [style]="{ margin: '0 0 35px 0' }"
+    >
+      <div class="container">
+        <div class="name">
+          <p><span>Nombre:</span> {{ appointment.nombre }}</p>
+          <p><span>Apellido</span> {{ appointment.apellido }}</p>
+          <p><span>Edad</span>: {{ appointment.edad }}</p>
+          <p><span>Email:</span>Email: {{ appointment.email }}</p>
+          <p><span>Telefono:</span> {{ appointment.telefono }}</p>
+          <p><span>Cedula:</span> {{ appointment.cedula }}</p>
+          <p>
+            <span>Fecha:</span>
+            {{ appointment.fecha | date : "yyyy-MM-dd HH:mm:ss" }}
+          </p>
+          <p>
+            <span>Tipo de Tratamiento:</span>
+            {{ appointment.tipo_tratamiento.name }}
+          </p>
+          <p><span>Metodo de pago:</span> {{ appointment.metodo_pago.name }}</p>
+        </div>
+        <p-button
+          icon="pi pi-pencil"
+          (click)="getAppointmentById(appointment._id)"
+          (click)="openDialog(appointment)"
+        ></p-button>
+        <p-button
+          icon="pi pi-trash"
+          severity="danger"
+          (click)="deleteAppointment(appointment._id)"
+        ></p-button>
+      </div>
+    </p-card>
+    <p-dialog [(visible)]="displayDialog" [modal]="true">
+      <p-card class="scheduler">
+        <form
+          class="scheduler_card"
+          #formSubmit
+          (ngSubmit)="onSubmit(formSubmit)"
+        >
+          <h2>Editar Cita</h2>
+
+          <div class="form__container">
+            <div class="form__input__container">
+              <div class="form__input">
+                <label for="nombre">Nombre</label>
+                <input
+                  id="nombre"
+                  type="text"
+                  aria-describedby="nombre-help"
+                  pInputText
+                  style="padding: 8px; width: 100%"
+                  [(ngModel)]="appointment.nombre"
+                  name="nombre"
+                />
+              </div>
+
+              <div class="form__input">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  aria-describedby="email-help"
+                  pInputText
+                  style="padding: 8px; width: 100%"
+                  [(ngModel)]="appointment.email"
+                  name="email"
+                />
+              </div>
+
+              <div class="form__input">
+                <label for="edad">Edad</label>
+                <input
+                  id="edad"
+                  type="text"
+                  aria-describedby="edad-help"
+                  pInputText
+                  style="padding: 8px; width: 100%"
+                  [(ngModel)]="appointment.edad"
+                  name="edad"
+                />
+              </div>
+
+              <div class="form__input">
+                <label for="telefono">Teléfono</label>
+                <input
+                  id="telefono"
+                  type="text"
+                  aria-describedby="telefono-help"
+                  pInputText
+                  style="padding: 8px; width: 100%"
+                  [(ngModel)]="appointment.telefono"
+                  name="telefono"
+                />
+              </div>
+
+              <div class="form__input">
+                <label for="cedula">Cédula</label>
+                <input
+                  id="cedula"
+                  type="text"
+                  aria-describedby="cedula-help"
+                  pInputText
+                  style="padding: 8px; width: 100%"
+                  [(ngModel)]="appointment.cedula"
+                  name="cedula"
+                />
+              </div>
+            </div>
+
+            <div class="form__input__options">
+              <div class="form__input">
+                <label for="apellido">Apellido</label>
+                <input
+                  id="apellido"
+                  type="text"
+                  aria-describedby="apellido-help"
+                  pInputText
+                  style="padding: 8px; width: 100%"
+                  [(ngModel)]="appointment.apellido"
+                  name="apellido"
+                />
+              </div>
+
+              <div class="form__input">
+                <label for="tipo_tratamiento">Tipos de Tratamientos</label>
+                <p-dropdown
+                  id="tipo_tratamiento"
+                  [(ngModel)]="appointment.tipo_tratamiento"
+                  name="tipo_tratamiento"
+                  [options]="tratamientos"
+                  optionLabel="name"
+                  [placeholder]="appointment.tipo_tratamiento"
+                  [style]="{ width: '100%', padding: '8px' }"
+                ></p-dropdown>
+              </div>
+
+              <div class="form__input">
+                <label for="metodo_pago">Métodos de Pago</label>
+                <p-dropdown
+                  id="metodo_pago"
+                  [(ngModel)]="appointment.metodo_pago"
+                  name="metodo_pago"
+                  [options]="metodoPagos"
+                  optionLabel="name"
+                  [placeholder]="appointment.metodo_pago"
+                  [style]="{ width: '100%', padding: '8px',  }"
+                ></p-dropdown>
+              </div>
+              <p-calendar
+                [(ngModel)]="appointment.fecha"
+                name="fecha"
+                [style]="{ width: '100%', padding: '8px' }"
+                [showTime]="true"
+                [showIcon]="true"
+                name="fecha"
+              ></p-calendar>
+            </div>
+          </div>
+
+          <p-button
+            label="Actualizar"
+            type="submit"
+            (click)="update(appointment._id)"
+          ></p-button>
+        </form>
+      </p-card>
+    </p-dialog>
+  </div>
+</div>

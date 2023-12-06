@@ -1,0 +1,44 @@
+<div class="scheduler">
+  <shared-header
+    [title]="'Consulta Tu Cita'"
+    [subtitle]="'Ingrese su numero de cedula'"
+    [span]="'para visualizar su cita'"
+  ></shared-header>
+  <form class="search__form" #searchForm (ngSubmit)="onSubmit(searchForm)">
+    <div class="searchBox">
+      <input
+        id="username"
+        type="username"
+        aria-describedby="username-help"
+        placeholder="Ingrese una cedula"
+        [(ngModel)]="cedula"
+        name="username"
+        pInputText
+      />
+    </div>
+    <p-button label="Submit" type="submit"></p-button>
+  </form>
+
+  <div class="scheduler__form">
+    <p-card *ngFor="let appointment of appointments" class="custom-card">
+      <div class="container">
+        <div class="name">
+          <p><span>Nombre:</span> {{ appointment.nombre }}</p>
+          <p><span>Apellido:</span> {{ appointment?.apellido }}</p>
+          <p><span>Edad:</span> {{ appointment?.edad }}</p>
+          <p><span>Email:</span> {{ appointment?.email }}</p>
+          <p><span>Telefono:</span> {{ appointment?.telefono }}</p>
+          <p><span>Cedula:</span> {{ appointment?.cedula }}</p>
+          <p><span>Fecha: </span>{{ appointment?.fecha | date }}</p>
+          <p>
+            <span>Tipo de Tratamiento: </span
+            >{{ appointment?.tipo_tratamiento.name }}
+          </p>
+          <p>
+            <span>Metodo de pago:</span> {{ appointment?.metodo_pago.name }}
+          </p>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  font-family: "Poppins", sans-serif;
+}

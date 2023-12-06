@@ -1,0 +1,8 @@
+.scheduler {
+  max-width: 100%;
+}
+
+.scheduler__form {
+  width: 60%;
+  margin: 50px auto 0 auto;
+}

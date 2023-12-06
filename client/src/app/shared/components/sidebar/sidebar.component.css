@@ -1,0 +1,74 @@
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  overflow: hidden;
+  transition: width 0.3s ease; /* Agregada transición */
+  box-shadow: 17px 0px 14px -7px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar__logo {
+  padding: 5px;
+  height: 150px;
+}
+
+.sidebar__logo img {
+  width: 180px;
+  cursor: pointer;
+}
+
+.sidebar__content {
+  height: 100%;
+}
+
+.sidebar__links li {
+  margin-bottom: 25px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon i {
+  font-size: 25px;
+  color: #888888;
+}
+
+.sidebar__links a {
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #888888;
+  height: 35px;
+  gap: 2rem;
+  transition: color 0.3s ease; /* Agregada transición */
+}
+
+.sidebar__links ul li:hover {
+  width: 100%;
+  height: 100%;
+  background: #71a9f7;
+  border-radius: 10px;
+  display: flex;
+  transition: all 0.3s ease; /* Agregada transición para otros cambios */
+}
+
+.sidebar__links ul li:hover a,
+.sidebar__links ul li:hover i {
+  color: white; /* Cambia el color del texto e ícono al hacer hover */
+}
+
+.sidebar__links ul li.active {
+  width: 100%;
+  height: 100%;
+  background: gray;
+  border-radius: 10px;
+  display: flex;
+}
+
+.sidebar__links ul li.active a {
+  color: white;
+}

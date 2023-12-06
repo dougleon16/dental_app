@@ -1,0 +1,34 @@
+<div class="scheduler">
+  <shared-header
+    [title]="'Cotizar Tratamientos'"
+    [subtitle]="'Cotiza rapidamente nuestros '"
+    [span]="'tratamientos disponibles'"
+  ></shared-header>
+
+  <div class="scheduler__form">
+    <p-card class="custom-card">
+      <div class="container">
+        <div class="name">
+          <h1>Tratamientos Disponibles</h1>
+          <div *ngFor="let treatment of treatments" class="field-checkbox">
+            <p-radioButton
+              [inputId]="treatment.key"
+              name="treatment"
+              [(ngModel)]="selectedTreatment"
+              [value]="treatment"
+            ></p-radioButton>
+            <label [for]="treatment.key" class="ml-2">{{
+              treatment.name
+            }}</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="precio_total" *ngIf="selectedTreatment">
+        <p>
+          Precio Total: <span>{{ selectedTreatment.precio | currency }}</span>
+        </p>
+      </div>
+    </p-card>
+  </div>
+</div>

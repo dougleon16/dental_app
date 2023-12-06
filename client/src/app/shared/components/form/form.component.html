@@ -1,0 +1,125 @@
+<p-card class="scheduler">
+  <form class="scheduler_card" #formSubmit (ngSubmit)="onSubmit(formSubmit)">
+    <h2>{{ title }}</h2>
+
+    <div class="form__container">
+      <div class="form__input__container">
+        <div class="form__input">
+          <label for="nombre">Nombre</label>
+          <input
+            id="nombre"
+            type="text"
+            aria-describedby="nombre-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.nombre"
+            name="nombre"
+          />
+        </div>
+
+        <div class="form__input">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            aria-describedby="email-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.email"
+            name="email"
+          />
+        </div>
+
+        <div class="form__input">
+          <label for="edad">Edad</label>
+          <input
+            id="edad"
+            type="text"
+            aria-describedby="edad-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.edad"
+            name="edad"
+          />
+        </div>
+
+        <div class="form__input">
+          <label for="telefono">Teléfono</label>
+          <input
+            id="telefono"
+            type="text"
+            aria-describedby="telefono-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.telefono"
+            name="telefono"
+          />
+        </div>
+
+        <div class="form__input">
+          <label for="cedula">Cédula</label>
+          <input
+            id="cedula"
+            type="text"
+            aria-describedby="cedula-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.cedula"
+            name="cedula"
+          />
+        </div>
+      </div>
+
+      <div class="form__input__options">
+        <div class="form__input">
+          <label for="apellido">Apellido</label>
+          <input
+            id="apellido"
+            type="text"
+            aria-describedby="apellido-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.apellido"
+            name="apellido"
+          />
+        </div>
+
+        <div class="form__input">
+          <label for="tipo_tratamiento">Tipos de Tratamientos</label>
+          <p-dropdown
+            id="tipo_tratamiento"
+            [(ngModel)]="appointment.tipo_tratamiento"
+            name="tipo_tratamiento"
+            [options]="tratamientos"
+            optionLabel="name"
+            placeholder="Selecciona un tipo de tratamiento"
+            [style]="{ width: '100%', padding: '8px' }"
+          ></p-dropdown>
+        </div>
+
+        <div class="form__input">
+          <label for="metodo_pago">Métodos de Pago</label>
+          <p-dropdown
+            id="metodo_pago"
+            [(ngModel)]="appointment.metodo_pago"
+            name="metodo_pago"
+            [options]="metodoPagos"
+            optionLabel="name"
+            placeholder="Selecciona un método de pago"
+            [style]="{ width: '100%', padding: '8px',  }"
+          ></p-dropdown>
+        </div>
+        <p-calendar
+          [(ngModel)]="appointment.fecha"
+          name="fecha"
+          [style]="{ width: '100%', padding: '8px' }"
+          [showTime]="true"
+          [showIcon]="true"
+          name="fecha"
+        ></p-calendar>
+      </div>
+    </div>
+
+    <p-button label="Submit" type="submit"></p-button>
+  </form>
+</p-card>

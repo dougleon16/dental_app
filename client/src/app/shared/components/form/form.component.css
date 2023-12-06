@@ -1,0 +1,34 @@
+.scheduler {
+  width: 100%;
+}
+
+.scheduler_card {
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+.form__input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.form_text {
+  margin: 20px;
+  width: 150px;
+}
+
+.form__container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form__input__options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}

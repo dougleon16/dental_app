@@ -1,0 +1,22 @@
+<aside class="sidebar">
+  <div class="sidebar__logo">
+    <img src="../../../../assets/logo.png" alt="" />
+  </div>
+  <div class="sidebar__content">
+    <div class="sidebar__links">
+      <ul *ngFor="let link of sidebarLinks">
+        <li
+          [ngClass]="{ active: link.name === enlaceActivo }"
+          [routerLink]="link.routerLink"
+        >
+          <div class="icon" [routerLink]="link.routerLink">
+            <i class="{{ link.icon }}"></i>
+            <div class="name">
+              <a [routerLink]="link.routerLink"> {{ link.name }} </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</aside>
