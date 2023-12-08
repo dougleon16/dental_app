@@ -9,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   exports: [
@@ -20,6 +21,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     CalendarModule,
     DialogModule,
     RadioButtonModule,
+    ToastModule,
   ],
 })
 export class PrimeNgModule {}

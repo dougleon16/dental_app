@@ -16,7 +16,10 @@
         pInputText
       />
     </div>
+    <p-toast></p-toast>
     <p-button label="Submit" type="submit"></p-button>
+    <p-toast></p-toast>
+    <p-button type="button" (click)="downloadPDF()">Descargar PDF</p-button>
   </form>
 
   <div class="scheduler__form">
@@ -30,6 +33,7 @@
           <p><span>Telefono:</span> {{ appointment?.telefono }}</p>
           <p><span>Cedula:</span> {{ appointment?.cedula }}</p>
           <p><span>Fecha: </span>{{ appointment?.fecha | date }}</p>
+          <p><span>Doctor:</span> {{ appointment?.doctor.name }}</p>
           <p>
             <span>Tipo de Tratamiento: </span
             >{{ appointment?.tipo_tratamiento.name }}
@@ -40,5 +44,24 @@
         </div>
       </div>
     </p-card>
+  </div>
+  <div
+    class="pdf-content"
+    style="display: none"
+    #pdfContainer
+    *ngFor="let appointment of appointments"
+  >
+    <p><span>Nombre:</span> {{ appointment.nombre }}</p>
+    <p><span>Apellido:</span> {{ appointment?.apellido }}</p>
+    <p><span>Edad:</span> {{ appointment?.edad }}</p>
+    <p><span>Email:</span> {{ appointment?.email }}</p>
+    <p><span>Telefono:</span> {{ appointment?.telefono }}</p>
+    <p><span>Cedula:</span> {{ appointment?.cedula }}</p>
+    <p><span>Doctor:</span> {{ appointment?.doctor.doctor.name }}</p>
+    <p><span>Fecha: </span>{{ appointment?.fecha | date }}</p>
+    <p>
+      <span>Tipo de Tratamiento: </span>{{ appointment?.tipo_tratamiento.name }}
+    </p>
+    <p><span>Metodo de pago:</span> {{ appointment?.metodo_pago.name }}</p>
   </div>
 </div>

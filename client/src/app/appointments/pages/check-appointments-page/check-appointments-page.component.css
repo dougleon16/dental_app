@@ -65,3 +65,11 @@ span {
   font-weight: bold;
   margin-right: 8px;
 }
+
+.pdf-content {
+  font-family: "Arial", sans-serif;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 10px;
+}

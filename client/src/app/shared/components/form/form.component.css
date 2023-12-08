@@ -3,17 +3,22 @@
 }
 
 .scheduler_card {
-  padding: 20px;
+  padding: 10px 40px 10px 40px;
 }
 
 h2 {
-  margin-bottom: 20px;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  text-align: center;
 }
 .form__input {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .form_text {
@@ -23,7 +28,7 @@ h2 {
 
 .form__container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .form__input__options {
@@ -31,4 +36,14 @@ h2 {
   flex-direction: column;
   gap: 5px;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1670px) {
+  .form__container {
+    flex-direction: column;
+  }
+}
+
+label {
+  margin-bottom: 10px;
 }

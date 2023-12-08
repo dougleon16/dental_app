@@ -1,11 +1,11 @@
 <div class="scheduler">
   <shared-header
-    [title]="'Citas Agendadas'"
-    [subtitle]="'Listado de todas las '"
-    [span]="'citas dentales'"
+    [title]="' Buena Sonrisa Clinica Dental'"
+    [subtitle]="'Visualiza  la cantidad tus  '"
+    [span]="'movimientos de citas agendadas'"
   ></shared-header>
 
-  <div class="noAppointments" *ngIf="allAppointments.length === 0">
+  <!-- <div class="noAppointments" *ngIf="allAppointments.length === 0">
     <p class="name" style="font-size: 30px; font-weight: bold">
       No hay citas agendadas
     </p>
@@ -15,6 +15,56 @@
         src="https://www.fhcsd.org/wp-content/uploads/2017/02/Dental-Services.png"
         alt=""
       />
+    </div>
+  </div> -->
+
+  <div class="dashbord__container">
+    <div class="dashboard__create">
+      <div class="card-container">
+        <p-card>
+          <ng-template pTemplate="title"> Citas Agendadas </ng-template>
+          <ng-template pTemplate="subtitle" class="card-subtitle">
+            Número de citas
+          </ng-template>
+          <ng-template pTemplate="content">
+            <div class="card-content">
+              <div class="center-text card-number">
+                {{ allAppointments.length }}
+              </div>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div class="dashboard__update">
+      <div class="card-container">
+        <p-card>
+          <ng-template pTemplate="title"> Doctores Disponibles </ng-template>
+          <ng-template pTemplate="subtitle" class="card-subtitle">
+            Número de Doctores
+          </ng-template>
+          <ng-template pTemplate="content">
+            <div class="card-content">
+              <div class="center-text card-number">4</div>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div class="dashboard__delete">
+      <div class="card-container">
+        <p-card>
+          <ng-template pTemplate="title"> Tratamientos Actuales </ng-template>
+          <ng-template pTemplate="subtitle" class="card-subtitle">
+            Número de tratamientos
+          </ng-template>
+          <ng-template pTemplate="content">
+            <div class="card-content">
+              <div class="center-text card-number">5</div>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
     </div>
   </div>
 
@@ -32,6 +82,7 @@
           <p><span>Email:</span>Email: {{ appointment.email }}</p>
           <p><span>Telefono:</span> {{ appointment.telefono }}</p>
           <p><span>Cedula:</span> {{ appointment.cedula }}</p>
+          <p><span>Doctor:</span> {{ appointment.doctor.name }}</p>
           <p>
             <span>Fecha:</span>
             {{ appointment.fecha | date : "yyyy-MM-dd HH:mm:ss" }}
