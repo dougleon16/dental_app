@@ -27,6 +27,11 @@ const appointmentSchema = mongoose.Schema({
     type: Object,
   },
 
+  doctor: {
+    type: Object,
+    required: true,
+  },
+
   cedula: {
     type: String,
     required: true,

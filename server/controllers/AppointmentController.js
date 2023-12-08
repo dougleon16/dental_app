@@ -1,20 +1,10 @@
 import Appointment from "../models/appointment.js";
 
 const createAppointment = async (req, res) => {
-  const {
-    nombre,
-    apellido,
-    edad,
-    telefono,
-    tipo_tratamiento,
-    cedula,
-    email,
-    fecha,
-    metodo_pago,
-  } = req.body;
+  const clientData = req.body;
 
   try {
-    const newAppointment = new Appointment(req.body);
+    const newAppointment = new Appointment(clientData);
     await newAppointment.save();
     res.status(201).json({
       message: "Cita agendada correctamente",
